@@ -72,4 +72,14 @@ public class AdmResidencia extends Morador {
     public void visualizarDespesas() {
 
     }
+
+    @Override
+    public void gerarRelatorioTarefas() {
+
+    }
+
+    @Override
+    public void gerarRelatorioDespesas() {
+
+    }
 }

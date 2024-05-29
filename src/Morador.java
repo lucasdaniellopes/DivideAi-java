@@ -1,6 +1,6 @@
 package src;
 
-public abstract class Morador implements Notificavel{
+public abstract class Morador implements Notificavel, TarefaManager, RelatorioManager, DespesaManager{
     protected String nome;
 
     public Morador(String nome) {

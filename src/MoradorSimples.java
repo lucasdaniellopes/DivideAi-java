@@ -67,4 +67,13 @@ public class MoradorSimples extends Morador{
         }
     }
 
+    @Override
+    public void gerarRelatorioTarefas() {
+
+    }
+
+    @Override
+    public void gerarRelatorioDespesas() {
+
+    }
 }
