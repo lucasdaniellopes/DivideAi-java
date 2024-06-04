@@ -2,6 +2,7 @@ package src;
 
 import java.util.ArrayList;
 
+// Classe AdmResidencia
 public class AdmResidencia extends Morador {
     private ArrayList<Morador> moradores;
     private ArrayList<Tarefa> tarefasCompartilhadas;
@@ -14,9 +15,8 @@ public class AdmResidencia extends Morador {
         this.despesasCompartilhadas = new ArrayList<>();
     }
 
-
     public void adicionarMorador(Morador morador) {
-        moradores.add(morador);
+        this.moradores.add(morador);
     }
 
     @Override
@@ -25,7 +25,10 @@ public class AdmResidencia extends Morador {
         notificarMembros("Nova tarefa compartilhada: " + tarefa.descricao);
     }
 
-    private void notificarMembros(String s) {
+    private void notificarMembros(String mensagem) {
+        for (Morador morador : moradores) {
+            morador.notificar(mensagem);
+        }
     }
 
     @Override
@@ -55,31 +58,66 @@ public class AdmResidencia extends Morador {
 
     @Override
     public void visualizarTarefas() {
-
+        for (Tarefa tarefa : tarefasCompartilhadas) {
+            tarefa.visualizar();
+        }
     }
 
     @Override
     public void registrarDespesa(Despesa despesa) {
-
+        despesasCompartilhadas.add(despesa);
+        notificarMembros("Nova despesa compartilhada: " + despesa.descricao);
     }
 
     @Override
     public void removerDespesa(int id) {
-
+        despesasCompartilhadas.removeIf(despesa -> despesa.id == id);
     }
 
     @Override
     public void visualizarDespesas() {
-
+        for (Despesa despesa : despesasCompartilhadas) {
+            despesa.visualizar();
+        }
     }
 
     @Override
     public void gerarRelatorioTarefas() {
-
+        System.out.println("Relatório de Tarefas Compartilhadas:");
+        for (Tarefa tarefa : tarefasCompartilhadas) {
+            tarefa.visualizar();
+        }
     }
 
     @Override
     public void gerarRelatorioDespesas() {
+        System.out.println("Relatório de Despesas Compartilhadas:");
+        for (Despesa despesa : despesasCompartilhadas) {
+            despesa.visualizar();
+        }
+    }
 
+    public ArrayList<Morador> getMoradores() {
+        return moradores;
+    }
+
+    public void setMoradores(ArrayList<Morador> moradores) {
+        this.moradores = moradores;
+    }
+
+    public ArrayList<Tarefa> getTarefasCompartilhadas() {
+        return tarefasCompartilhadas;
+    }
+
+    public void setTarefasCompartilhadas(ArrayList<Tarefa> tarefasCompartilhadas) {
+        this.tarefasCompartilhadas = tarefasCompartilhadas;
+    }
+
+    public ArrayList<Despesa> getDespesasCompartilhadas() {
+        return despesasCompartilhadas;
+    }
+
+    public void setDespesasCompartilhadas(ArrayList<Despesa> despesasCompartilhadas) {
+        this.despesasCompartilhadas = despesasCompartilhadas;
     }
 }
