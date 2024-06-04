@@ -2,8 +2,7 @@ package src;
 
 import java.util.ArrayList;
 
-public class MoradorSimples extends Morador{
-
+public class MoradorSimples extends Morador {
     private ArrayList<Tarefa> tarefas;
     private ArrayList<Despesa> despesas;
 
@@ -12,6 +11,10 @@ public class MoradorSimples extends Morador{
         this.tarefas = new ArrayList<>();
         this.despesas = new ArrayList<>();
     }
+
+    public MoradorSimples(){
+    }
+
 
     @Override
     public void adicionarTarefa(Tarefa tarefa) {
@@ -69,11 +72,18 @@ public class MoradorSimples extends Morador{
 
     @Override
     public void gerarRelatorioTarefas() {
-
+        System.out.println("Relatório de Tarefas:");
+        for (Tarefa tarefa : tarefas) {
+            tarefa.visualizar();
+        }
     }
 
     @Override
     public void gerarRelatorioDespesas() {
-
+        System.out.println("Relatório de Despesas:");
+        for (Despesa despesa : despesas) {
+            despesa.visualizar();
+        }
     }
 }
+

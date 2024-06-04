@@ -1,10 +1,12 @@
 package src;
 
-public abstract class Morador implements Notificavel, TarefaManager, RelatorioManager, DespesaManager{
+public abstract class Morador implements Notificavel, TarefaManager, RelatorioManager, DespesaManager {
     protected String nome;
 
     public Morador(String nome) {
         this.nome = nome;
+    }
+    public Morador(){
     }
 
     public String getNome() {
@@ -26,5 +28,4 @@ public abstract class Morador implements Notificavel, TarefaManager, RelatorioMa
         System.out.println(nome + " recebeu notificação: " + mensagem);
     }
 }
-
 
