@@ -47,23 +47,36 @@ import java.util.Scanner; public class Main {
                     } else {
                         System.out.println("Opção inválida.");
                     }
-                break;
-
-
+                    break;
 
 
                 case 2:
 
-                    System.out.println("Adicionar/Visualizar Tarefas: escolhida");
-                    break;
+                    System.out.println("\n 1 - Adicionar Tarefas: \n 2 - Visualizar Tarefa:: \n 3 - Sair ");
+                    int opcaoMen = s.nextInt();
+                    s.nextLine();
+
+                    if (opcaoMen == 1) {
+                        while (true) {
+                            System.out.println("Digite a tarefa para adicionar ou 'Sair' para Sair:");
+                            String nomeTarefa = s.nextLine();
+
+                            if (nomeTarefa.equalsIgnoreCase("Sair")) {
+                                System.out.println("Tarefas:");
+                                for (Tarefa tarefas : admin.getTarefasCompartilhadas()) {
+                                    System.out.println(tarefas.getNome());
+
+                                }
+                                break;
+                            }
+                            TarefaSimples novaTarefa = new TarefaSimples(nomeTarefa);
+                            admin.adicionarTarefa(novaTarefa);
+                            System.out.println("Tarefa: " + nomeTarefa + " adicionado.");
 
 
-                case 3:
-                    System.out.println("Adicionar/Visualizar Despesas: escolhida");
-                    break;
-
+                        }
+                    }break;
             }
-
         }
     }
 }
