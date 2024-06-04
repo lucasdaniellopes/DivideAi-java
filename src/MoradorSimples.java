@@ -12,8 +12,7 @@ public class MoradorSimples extends Morador {
         this.despesas = new ArrayList<>();
     }
 
-    public MoradorSimples(){
-    }
+
 
 
     @Override
