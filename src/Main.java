@@ -72,9 +72,19 @@ import java.util.Scanner; public class Main {
                             TarefaSimples novaTarefa = new TarefaSimples(nomeTarefa);
                             admin.adicionarTarefa(novaTarefa);
                             System.out.println("Tarefa: " + nomeTarefa + " adicionado.");
-
-
                         }
+
+                        } else if (opcaoMen == 2) {
+                            System.out.println("Tarefas:");
+                            for (Tarefa tarefa : admin.getTarefasCompartilhadas()) {
+                                System.out.println(tarefa.getNome());
+                            }
+                        } else if (opcaoMen == 3) {
+                            break;
+                        } else {
+                            System.out.println("Opção inválida.");
+                        }
+                        break;
                     }break;
             }
         }
