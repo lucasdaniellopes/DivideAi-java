@@ -76,7 +76,6 @@ import java.util.Scanner; public class Main {
                         }
 
                         } else if (opcaoMen == 2) {
-                            System.out.println("morra morara"+admin.getTarefasCompartilhadas());
                             System.out.println("Tarefas:");
 
                             for (Tarefa tarefa : admin.getTarefasCompartilhadas()) {
