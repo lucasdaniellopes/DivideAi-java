@@ -14,6 +14,7 @@ public class TarefaSimples extends Tarefa{
 
 
     public TarefaSimples(String nomeTarefa) {
+        super(nomeTarefa);
     }
 
 }

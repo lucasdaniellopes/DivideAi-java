@@ -12,8 +12,8 @@ public abstract class Tarefa {
         this.prioridade = prioridade;
         this.nome = nome;
     }
-    public Tarefa(){
-
+    public Tarefa(String nome){
+        this.nome = nome;
     }
     public abstract void concluir();
     public abstract void visualizar();

@@ -63,9 +63,10 @@ import java.util.Scanner; public class Main {
 
                             if (nomeTarefa.equalsIgnoreCase("Sair")) {
                                 System.out.println("Tarefas:");
-                                for (Tarefa tarefas : admin.getTarefasCompartilhadas()) {
-                                    System.out.println(tarefas.getNome());
+                                for (Tarefa tarefa : admin.getTarefasCompartilhadas()) {
+                                    System.out.println(tarefa.getNome());
 
+                                                        //essa função que mostra as tarefas adicionadas
                                 }
                                 break;
                             }
@@ -75,7 +76,9 @@ import java.util.Scanner; public class Main {
                         }
 
                         } else if (opcaoMen == 2) {
+                            System.out.println("morra morara"+admin.getTarefasCompartilhadas());
                             System.out.println("Tarefas:");
+
                             for (Tarefa tarefa : admin.getTarefasCompartilhadas()) {
                                 System.out.println(tarefa.getNome());
                             }
@@ -89,4 +92,3 @@ import java.util.Scanner; public class Main {
             }
         }
     }
-}

@@ -21,7 +21,7 @@ public class AdmResidencia extends Morador {
 
     @Override
     public void adicionarTarefa(Tarefa tarefa) {
-        tarefasCompartilhadas.add(tarefa);
+       this.tarefasCompartilhadas.add(tarefa);
         notificarMembros("Nova tarefa compartilhada: " + tarefa.nome);
     }
 
