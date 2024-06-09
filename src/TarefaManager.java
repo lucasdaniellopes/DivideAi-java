@@ -5,8 +5,6 @@ public interface TarefaManager {
 
    void removerTarefa(int id);
 
-   void atualizarTarefa(int id, Tarefa tarefaAtualizada);
-
    void marcarTarefaComoConcluida(int id);
 
    void visualizarTarefas();

@@ -33,17 +33,13 @@ public class AdmResidencia extends Morador {
 
     @Override
     public void removerTarefa(int id) {
-        tarefasCompartilhadas.removeIf(tarefa -> tarefa.id == id);
-    }
-
-    @Override
-    public void atualizarTarefa(int id, Tarefa tarefaAtualizada) {
-        for (int i = 0; i < tarefasCompartilhadas.size(); i++) {
-            if (tarefasCompartilhadas.get(i).id == id) {
-                tarefasCompartilhadas.set(i, tarefaAtualizada);
-                break;
+        for (Tarefa tarefa : tarefasCompartilhadas) {
+            if (tarefa.getId() == id) {
+                tarefasCompartilhadas.remove(tarefa);
+                return;
             }
         }
+        System.out.println("Tarefa com ID " + id + " não encontrada.");
     }
 
     @Override
@@ -76,22 +72,6 @@ public class AdmResidencia extends Morador {
 
     @Override
     public void visualizarDespesas() {
-        for (Despesa despesa : despesasCompartilhadas) {
-            despesa.visualizar();
-        }
-    }
-
-    @Override
-    public void gerarRelatorioTarefas() {
-        System.out.println("Relatório de Tarefas Compartilhadas:");
-        for (Tarefa tarefa : tarefasCompartilhadas) {
-            tarefa.visualizar();
-        }
-    }
-
-    @Override
-    public void gerarRelatorioDespesas() {
-        System.out.println("Relatório de Despesas Compartilhadas:");
         for (Despesa despesa : despesasCompartilhadas) {
             despesa.visualizar();
         }

@@ -1,6 +1,6 @@
 package src;
 
-public abstract class Morador implements Notificavel, TarefaManager, RelatorioManager, DespesaManager {
+public abstract class Morador implements Notificavel, TarefaManager, DespesaManager {
     protected String nome;
 
     public Morador(String nome) {
@@ -15,7 +15,6 @@ public abstract class Morador implements Notificavel, TarefaManager, RelatorioMa
 
     public abstract void adicionarTarefa(Tarefa tarefa);
     public abstract void removerTarefa(int id);
-    public abstract void atualizarTarefa(int id, Tarefa tarefaAtualizada);
     public abstract void marcarTarefaComoConcluida(int id);
     public abstract void visualizarTarefas();
 

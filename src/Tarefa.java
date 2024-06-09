@@ -4,17 +4,13 @@ public abstract class Tarefa {
     protected int id;
     protected String nome;
     protected boolean concluida;
-    protected int prioridade;
 
-    public Tarefa(String nome, int id, String descricao, int prioridade) {
+    public Tarefa(int id, String nome) {
         this.id = id;
         this.concluida = false;
-        this.prioridade = prioridade;
         this.nome = nome;
     }
-    public Tarefa(String nome){
-        this.nome = nome;
-    }
+
     public abstract void concluir();
     public abstract void visualizar();
 
@@ -26,20 +22,12 @@ public abstract class Tarefa {
         this.id = id;
     }
 
-    public boolean isConcluida() {
+    public boolean getConcluida() {
         return concluida;
     }
 
     public void setConcluida(boolean concluida) {
         this.concluida = concluida;
-    }
-
-    public int getPrioridade() {
-        return prioridade;
-    }
-
-    public void setPrioridade(int prioridade) {
-        this.prioridade = prioridade;
     }
 
     public String getNome() {

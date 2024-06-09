@@ -1,6 +1,9 @@
 package src;
 
-public class TarefaSimples extends Tarefa{
+public class TarefaSimples extends Tarefa {
+    public TarefaSimples(int id, String nome) {
+        super(id, nome);
+    }
 
     @Override
     public void concluir() {
@@ -11,10 +14,4 @@ public class TarefaSimples extends Tarefa{
     public void visualizar() {
 
     }
-
-
-    public TarefaSimples(String nomeTarefa) {
-        super(nomeTarefa);
-    }
-
 }
