@@ -1,29 +1,39 @@
 package src;
 
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class DespesaTest {
+    private DespesaConcreta despesaAdicionar;
+    private DespesaConcreta despesaVisualizar;
+    private DespesaConcreta despesaPaga;
+
+    @BeforeEach
+    public void setUp() {
+        despesaAdicionar = new DespesaConcreta(1, "Conta de Luz", 450.0, "30/06/2024");
+        despesaVisualizar = new DespesaConcreta(2, "Conta de Luz", 450.0, "30/06/2024");
+        despesaPaga = new DespesaConcreta(3, "Aluguel", 1000.0, "25/06/2024");
+    }
 
     @Test
-    public void testConstrutorDespesa() {
-        int id = 1;
-        String descricao = "Aluguel";
-        double valor = 1000.0;
-        String data = "2024-06-04";
-        Despesa despesa = new Despesa(id, descricao, valor, data) {
-            @Override
-            public void visualizar() {
-                System.out.println("ID: " + id);
-                System.out.println("Descrição: " + descricao);
-                System.out.println("Valor: R$ " + valor);
-                System.out.println("Data: " + data);
-            }
-        };
+    public void testDespesas() {
+        System.out.println("Adicionar despesa: " + despesaAdicionar.descricao + ", Valor: " + despesaAdicionar.valor + ", Data: " + despesaAdicionar.data);
+        assertEquals(1, despesaAdicionar.id);
+        assertEquals("Conta de Luz", despesaAdicionar.descricao);
+        assertEquals(450.0, despesaAdicionar.valor);
+        assertEquals("30/06/2024", despesaAdicionar.data);
 
-        assertEquals(id, despesa.id);
-        assertEquals(descricao, despesa.descricao);
-        assertEquals(valor, despesa.valor, 0.01);
-        assertEquals(data, despesa.data);
+        assertEquals(2, despesaVisualizar.id);
+        assertEquals("Conta de Luz", despesaVisualizar.descricao);
+        assertEquals(450.0, despesaVisualizar.valor);
+        assertEquals("30/06/2024", despesaVisualizar.data);
+        despesaVisualizar.visualizar();
+
+        assertEquals(3, despesaPaga.id);
+        assertEquals("Aluguel", despesaPaga.descricao);
+        assertEquals(1000.0, despesaPaga.valor);
+        assertEquals("25/06/2024", despesaPaga.data);
+        System.out.println("Despesa paga: " + despesaPaga.descricao + ", Valor: " + despesaPaga.valor + ", Data: " + despesaPaga.data);
     }
 }
