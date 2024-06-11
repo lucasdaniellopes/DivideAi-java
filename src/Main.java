@@ -7,16 +7,17 @@ public class Main {
     public static void main(String[] args) {
 
         AdmResidencia admin = new AdmResidencia("Mikael");
-
         Scanner s = new Scanner(System.in);
-
         int proximoIdTarefa = 1;
 
         while (true) {
+            System.out.println("---ORGANIZADOR JAVA---");
+            System.out.println("_________________________");
             System.out.println("Escolha uma das opções: ");
             System.out.println("1 - Adicionar/Visualizar Participantes:");
             System.out.println("2 - Adicionar/Visualizar Tarefas:");
             System.out.println("3 - Adicionar/Visualizar Despesas:");
+            System.out.println("_________________________");
             
             try {
                 int opcao = Integer.parseInt(s.nextLine());
@@ -24,9 +25,12 @@ public class Main {
                 switch (opcao) {
                     case 1:
                         while (true) {
+                            System.out.println("----- MENU MEMBROS-----");
+                            System.out.println("_________________________");
                             System.out.println("\n1 - Adicionar Membros:");
                             System.out.println("2 - Visualizar Membros:");
                             System.out.println("3 - Voltar ao Menu Principal");
+                            System.out.println("_________________________");
                             int opcaoMenu = s.nextInt();
                             s.nextLine();
 
@@ -60,10 +64,13 @@ public class Main {
                     break;
                     case 2:
                     while (true) {
+                        System.out.println("----- MENU TAREFA-----");
+                        System.out.println("_________________________");
                         System.out.println("\n1 - Adicionar Tarefa:");
                         System.out.println("2 - Visualizar Tarefas:");
                         System.out.println("3 - Remover Tarefas:");
                         System.out.println("4 - Voltar ao Menu Principal");
+                        System.out.println("_________________________");
                         int opcaoMen = s.nextInt();
                         s.nextLine();
 
@@ -106,9 +113,68 @@ public class Main {
                         }
                     }
                     break;
+                    
                     case 3:
-                        // Código para adicionar/visualizar despesas
-                        break;
+                    while (true) {
+                        System.out.println("----- MENU DESPESAS-----");
+                        System.out.println("_________________________");
+                        System.out.println("\n1 - Adicionar Despesa:");
+                        System.out.println("2 - Visualizar Despesas:");
+                        System.out.println("3 - Remover Despesa:");
+                        System.out.println("4 - Voltar ao Menu Principal");
+                        System.out.println("_________________________");
+                        int opcaoDespesas = s.nextInt();
+                        s.nextLine();
+                
+                        if (opcaoDespesas == 1) {
+                            while (true) {
+                                System.out.println("Digite a descrição da despesa ou 'Sair' para Sair:");
+                                String descricao = s.nextLine();
+                
+                                if (descricao.equalsIgnoreCase("Sair")) {
+                                    break;
+                                }
+                
+                                System.out.println("Digite o valor da despesa:");
+                                double valor = s.nextDouble();
+                                s.nextLine(); 
+                
+                                System.out.println("Digite a data da despesa (formato: dd/mm/aaaa):");
+                                String data = s.nextLine();
+                
+                                int idDespesa = admin.getDespesasCompartilhadas().size() + 1; 
+                
+                                DespesaConcreta novaDespesa = new DespesaConcreta(idDespesa, descricao, valor, data);
+                                admin.registrarDespesa(novaDespesa);
+                                System.out.println("Despesa: " + descricao + " adicionada com ID " + idDespesa);
+                            }
+                        } else if (opcaoDespesas == 2) {
+                            System.out.println("Despesas:");
+                
+                            for (Despesa despesa : admin.getDespesasCompartilhadas()) {
+                                despesa.visualizar();
+                            }
+                        } else if (opcaoDespesas == 3) {
+                            System.out.println("Digite o ID da despesa para remover ou 'Sair' para voltar:");
+                            String idDespesaStr = s.nextLine();
+                            if (idDespesaStr.equalsIgnoreCase("Sair")) {
+                                break;
+                            }
+                            try {
+                                int idDespesa = Integer.parseInt(idDespesaStr);
+                                admin.removerDespesa(idDespesa);
+                                System.out.println("Despesa com ID " + idDespesa + " removida.");
+                            } catch (NumberFormatException e) {
+                                System.out.println("ID inválido. Por favor, digite um número.");
+                            }
+                        } else if (opcaoDespesas == 4) {
+                            break;
+                        } else {
+                            System.out.println("Opção inválida.");
+                        }
+                    }
+                    break;
+            
                     default:
                         System.out.println("Opção inválida. Por favor, digite um número entre 1 e 3.");
                         break;
@@ -119,5 +185,4 @@ public class Main {
             }
         }
     }
-}
-
+}        
